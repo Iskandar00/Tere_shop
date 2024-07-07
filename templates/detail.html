@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <style>
+        body {
+            min-height: 100vh;
+        }
+
+        .product-container {
+            background: white;
+            border-radius: 8px;
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+            overflow: hidden;
+            max-width: 900px;
+            width: 97%;
+            margin: 20px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+
+
+        .product-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #ff5722;
+            margin-bottom: 10px;
+        }
+
+        .product-brand {
+            font-size: 18px;
+            color: #757575;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                margin: 10px;
+            }
+
+            .product-title {
+                font-size: 20px;
+            }
+
+            .product-price {
+                font-size: 18px;
+            }
+
+            .product-brand {
+                font-size: 16px;
+            }
+
+            .product-description {
+                font-size: 14px;
+            }
+
+
+        }
+
+        .add-to-cart-button {
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            font-size: 1em;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+<header class="header" id="header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'assets/shinaLogo (2).png' %}" alt="" width="100px" height="85px">
+            </a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a aria-current="page" href="{% url 'home-page' %}">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact">Заказать</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a aria-current="page" href="{% url 'product_list-page' %}">Товары</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'basked' %}">
+                            Корзинка
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </li>
+                </ul>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'logout' %}" type="button" class="btn btn-outline-light ms-3">Выйти</a>
+                {% else %}
+                <a href="{% url 'register' %}" type="button" class="btn btn-outline-light ms-3">Зарегистрироваться</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</header>
+<h1 style="font-size: 40px; text-align: center; margin: 30px ;">Ваша карзина</h1>
+<div class="product-container">
+    {% if product.image.url %}
+    <img class="product-image" src="{{ object.image.url }}" alt="Product Image">
+    {% else %}
+    <img src="https://via.placeholder.com/400" alt="Product Image" class="product-image"></a>
+    {% endif %}
+    <div class="product-details">
+        <div style="display: flex; margin-top: 10px; ">
+            <h1 class="product-title">{{ object.title }}</h1>
+        </div>
+        <p class="product-price">Price: ${{ object.price }}</p>
+        <p class="product-brand">Brand: {{ object.brand }}</p>
+        <p class="product-description">{{ object.disc }}
+        </p>
+    </div>
+    <button style="width: 100%;" class="add-to-cart-button">Add to Cart</button>
+</div>
+</body>
+
+</html>

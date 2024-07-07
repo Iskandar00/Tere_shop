@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta class="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="">
+    <div class='reg'>
+        <form class="reg" method="post">
+            {% csrf_token %}
+            <img src="{% static 'assets/adminImage.png' %}" class='' alt="" />
+            <div class=''>
+                <h1 class=''>Регистрация</h1>
+                <input class='' type="text" name="first_name" id="" placeholder='Ваша имя' />
+                <input class='' type="text" name="username" placeholder='Имя пользователя' name="login" id="" />
+                <input class='' type="password" name="password" id="" placeholder='Пароль' />
+                <input class='' type="password" name="confirm_password" id="" placeholder='Подтвердите Пароль' />
+                {% for message in messages %}
+                    <span style="color: red;">{{ message }}</span>
+                {% endfor %}
+                <button type="submit" class=''>Зарегистрироваться</button>
+                <a class='' href="{% url 'login' %}" >Войти</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

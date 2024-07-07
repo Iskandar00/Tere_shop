@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+<form class='reg' method="post">
+    {% csrf_token %}
+    <img src="{% static 'assets/adminImage.png' %}" class='hidden lg:block' alt=""/>
+    <div class=''>
+        <h1 class=''>Войти</h1>
+        <input class='' type="text" placeholder='Имя пользователя' name="username" id=""/>
+        <input class='' type="password" name="password" id="" placeholder='Пароль'/>
+        {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+                <span style="color: red">{{ error }}!</span>
+            {% endfor %}
+        {% endfor %}
+        <button>Войти</button>
+        <a href="{% url 'register' %}">Регистрация</a>
+    </div>
+</form>
+</body>
+
+</html>

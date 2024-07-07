@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+header {
+    width: 100%;
+    margin: auto;
+}
+
+nav {
+    width: 100%;
+    margin: auto;
+    position: static;
+    top: 0px;
+    left: 0px;
+    background-color: #091a2a;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 10px;
+}
+
+.headerTitle {
+    width: 100%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.home-page-content {
+    background-color: #EAF1EB;
+    padding: 30px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px #d6d6d6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-page-content img {
+    width: 600px;
+}
+
+.headerTitle h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.headerTitle p {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.hd-btn {
+    margin-top: 10px;
+    padding: 12px 70px;
+}
+
+.about {
+    width: 100%;
+    margin: auto;
+    margin-top: 120px;
+}
+
+.about-title {
+    margin-bottom: 40px;
+}
+
+.about-title h1 {
+    font-weight: 700px;
+    font-size: 50px;
+}
+
+.about-page-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-page-content p {
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: rgb(102, 95, 95);
+}
+
+.contact-section {
+    padding: 50px 20px;
+    background-color: #fff;
+    margin: 50px auto;
+    border-radius: 8px;
+}
+
+.contact-info h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    color: #666;
+    margin: 5px 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.contact-form button {
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #091a2a;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer-links li {
+    margin: 5px 0;
+    margin-left: 20px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 1.5em;
+}
+
